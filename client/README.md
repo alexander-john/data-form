@@ -1,12 +1,51 @@
-# React + Vite
+# Data Structures Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite project for learning and building classic data structures from scratch, with interactive step-by-step walkthroughs and a built-in code editor.
 
-Currently, two official plugins are available:
+## 🚀 Local Development Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Clone the Repository
 
-## Expanding the ESLint configuration
+```bash
+git clone <your-repo-url>
+cd data-form/client
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Install Dependencies
+
+Make sure you have [Node.js](https://nodejs.org/) installed (v18+ recommended).
+
+```bash
+npm install
+```
+
+### 3. Start the Development Server
+
+```bash
+npm run dev
+```
+
+Open the local URL shown in your terminal (usually [http://localhost:5173/](http://localhost:5173/)) in your browser.
+
+## 📁 Project Structure
+
+- `src/` — React source code (components, walkthroughs, etc.)
+- `public/` — Static assets
+- `README.md` — Project documentation
+
+## 🛠️ Useful Commands
+
+- **Install a new package:**  
+  `npm install <package-name>`
+- **Build for production:**  
+  `npm run build`
+
+## 📝 Additional Notes
+
+- This project uses [@monaco-editor/react](https://github.com/suren-atoyan/monaco-react) for the code editor.
+- Routing is handled by [react-router-dom](https://reactrouter.com/).
+- For code formatting and linting, configure ESLint and Prettier as needed.
+
+## 📚 About
+
+Click a data structure to get a step-by-step walkthrough and build it interactively in the code editor!
