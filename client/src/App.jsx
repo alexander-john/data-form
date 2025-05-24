@@ -3,6 +3,7 @@ import Editor from '@monaco-editor/react'
 import { Routes, Route, Link } from 'react-router-dom'
 import DataStructureWalkthrough from './DataStructureWalkthrough'
 import './App.css'
+import bmcButton from './assets/bmc-button.svg'
 
 const dataStructures = [
   'Array',
@@ -29,6 +30,19 @@ function Home() {
         ))}
       </ul>
       <p>Click a data structure to learn how to build it step by step!</p>
+      <div style={{ marginTop: '2rem' }}>
+        <a
+          href="https://www.buymeacoffee.com/aljohn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={bmcButton}
+            alt="Buy Me A Coffee"
+            style={{ height: '60px', width: 'auto', borderRadius: '8px' }}
+          />
+        </a>
+      </div>
     </div>
   )
 }
