@@ -8,7 +8,6 @@ const walkthroughSteps = {
       instruction: "Step 1: Start by creating a class called MyArray.",
       code: `class MyArray {
     constructor() {
-        // We'll store elements in an object
         this.data = {};
         this.length = 0;
     }
@@ -629,7 +628,7 @@ class BinaryTree {
 function DataStructureWalkthrough() {
   const { name } = useParams()
   const [step, setStep] = useState(0)
-  const [code, setCode] = useState('// Start typing your code here...')
+  const [code, setCode] = useState('')
 
   const steps = walkthroughSteps[name] || ["Step 1: Coming soon!"]
 
