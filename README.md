@@ -49,3 +49,36 @@ Open the local URL shown in your terminal (usually [http://localhost:5173/](http
 ## 📚 About
 
 Click a data structure to get a step-by-step walkthrough and build it interactively in the code editor!
+
+## 🐳 Docker Usage
+
+You can build and run the app in a Docker container for easy deployment or local testing.
+
+### 1. Build the Docker Image
+
+From the `client` directory:
+
+```bash
+cd client
+docker build -t code-form .
+```
+
+Or from the project root:
+
+```bash
+docker build -t code-form -f client/Dockerfile client
+```
+
+### 2. Run the Docker Container
+
+```bash
+docker run -p 8080:80 code-form
+```
+
+Then open [http://localhost:8080](http://localhost:8080) in your browser.
+
+---
+
+**Note:**  
+The Dockerfile builds the app and serves it using Nginx.  
+Make sure Docker is installed and running on your machine.
