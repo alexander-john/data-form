@@ -82,3 +82,68 @@ Then open [http://localhost:8080](http://localhost:8080) in your browser.
 **Note:**  
 The Dockerfile builds the app and serves it using Nginx.  
 Make sure Docker is installed and running on your machine.
+
+## 🌐 Deployment
+
+This project can be deployed to a DigitalOcean Droplet using the provided GitHub Actions workflow.
+
+### GitHub Actions Workflow
+
+The following is an example workflow for deploying to a DigitalOcean Droplet via SSH:
+
+```yaml
+name: Deploy to DigitalOcean Droplet
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DO_SSH_KEY }}
+
+      - name: Copy files to droplet (optional, if not using git pull)
+        # uses: appleboy/scp-action@v0.1.7
+        # with:
+        #   host: ${{ secrets.DO_HOST }}
+        #   username: root
+        #   key: ${{ secrets.DO_SSH_KEY }}
+        #   source: "."
+        #   target: "/root/data-form"
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: root
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            cd /root/data-form/client
+            git pull origin main
+            docker build -t code-form .
+            docker stop code-form || true
+            docker rm code-form || true
+            docker run -d --name code-form -p 80:80 code-form
+```
+
+### Secrets
+
+Make sure to add the following secrets to your GitHub repository:
+
+- `DO_SSH_KEY`: Your SSH private key for accessing the Droplet.
+- `DO_HOST`: The IP address or hostname of your DigitalOcean Droplet.
+
+### Notes
+
+- The workflow checks out the code, sets up SSH, and optionally copies files to the Droplet.
+- It then deploys the application by pulling the latest code, building the Docker image, and restarting the Docker container.
