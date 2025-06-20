@@ -33,13 +33,6 @@ Open the local URL shown in your terminal (usually [http://localhost:5173/](http
 - `public/` — Static assets
 - `README.md` — Project documentation
 
-## 🛠️ Useful Commands
-
-- **Install a new package:**  
-  `npm install <package-name>`
-- **Build for production:**  
-  `npm run build`
-
 ## 📝 Additional Notes
 
 - This project uses [@monaco-editor/react](https://github.com/suren-atoyan/monaco-react) for the code editor.
